@@ -25,7 +25,7 @@ while True:
     elif len(bag) == 10:
         print("Påsen är full")
         contin()
-    elif choice.lower() == "r":
+    elif choice.lower() == "r": #ändra till att printa saker i påsen med siffror brevid, skriv siffra för att ta bort
         bag.remove(input("Skriv vad du vill ta bort "))
     elif choice.lower() == "f":
         query = input("vad vill du söka ")
