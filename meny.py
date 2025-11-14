@@ -1,10 +1,12 @@
 from random import randint
 
-def contin():
+def forts():
     input("Tryck [ENTER] för att fortsätta")
+symbol = ["\u2780", "\u2781", "\u2782", "\u2783", "\u2784", "\u2785", "\u2786", "\u2787", "\u2788", "\u2789"]
 bag = [""]
 ätit = ["Det var gott", "Det var inte gott"]
 mellanrum = 2
+första = True
 print("Välkommen till påsen")
 while True:
     print("Visa inehållet [V]")
@@ -19,21 +21,32 @@ while True:
     if choice.lower() == "v":
         for i in range(len(bag)):
             print(bag[i])
-        contin()
+        forts()
     elif choice.lower() == "s" and len(bag) < 10:
         bag.append(input("Skriv vad du vill spara "))
+        if första:
+            bag.pop(0)
+            första = False
     elif len(bag) == 10:
         print("Påsen är full")
-        contin()
-    elif choice.lower() == "r": #ändra till att printa saker i påsen med siffror brevid, skriv siffra för att ta bort
-        bag.remove(input("Skriv vad du vill ta bort "))
+        forts()
+    elif choice.lower() == "r": 
+        if första:
+            print("Påsen är tom")
+        else:
+            for i in range(len(bag)):
+                print(symbol[i], bag[i])
+            rem = int(input("Skriv siffran till den du vill ta bort"))
+            print(f"{bag[rem-1]} har tagits bort")
+            bag.pop(rem-1)
+        forts()
     elif choice.lower() == "f":
         query = input("vad vill du söka ")
         if query in bag:
             print(f"Hittade {query} i påsen")
         else:
             print(f"Hittade inte {query} i påsen")
-        contin()
+        forts()
     elif choice.lower() == "e":
         meal = input("Skriv vad du vill äta ")
         if meal in bag:
@@ -41,7 +54,7 @@ while True:
             print(ätit[randint(0, 1)])
         else:
             print(f"Det fanns inte {meal}")
-        contin()
+        forts()
     elif choice.lower() == "q":
         break
     mellanrum = 3
