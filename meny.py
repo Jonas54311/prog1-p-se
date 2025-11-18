@@ -21,8 +21,9 @@ while True:
     print("Sök i påsen        [F]")
     print("Ät ur påsen        [E]")
     print("Töm påsen          [T]")
+    print("Spräng påsen       [B]")
     print("Avsluta programmet [Q]")
-    print("\n")
+    print("")
     choice = input("Vad vill du göra ")
     if choice.lower() == "v":
         for i in range(len(bag)):
@@ -74,16 +75,18 @@ while True:
         print(":                 ':::::::::::::.")
         boom = input("Är du säker på att du vill spränga påsen? (y/n) ")
         if boom.lower() == "y":
-            print("         ::         ")
-            print("         ::         ")
-            print("         ::         ")
-            print("       .::::.       ")
-            print("::::::::::::::::::::")
-            print("       '::::'       ")
-            print("         ::         ")
-            print("         ::         ")
-            print("         ::         ")
-            print("         ::         ")
+            print("::::::::.        .:::.         .:::.      :::        :::   ::")
+            print("::     '::.    .::' '::.     .::' '::.    :::.      .:::   ::")
+            print("::       ::   .:'     ':.   .:'     ':.   ::::      ::::   ::")
+            print("::    .:::'   ::       ::   ::       ::   :: ::    :: ::   ::")
+            print(":::::::::     ::       ::   ::       ::   :: ':.  .:' ::   ::")
+            print("::    ':::.   ::       ::   ::       ::   ::  ::  ::  ::   ::")
+            print("::       ::   ':.     .:'   ':.     .:'   ::   ::::   ::   ")
+            print("::     .::'    '::. .::'     '::. .::'    ::   '::'   ::   ::")
+            print("::::::::         ':::'         ':::'      ::    ::    ::   ::")
             break
+        else:
+            print("påsen sprängdes inte")
+            forts()
     elif choice.lower() == "q":
         break
